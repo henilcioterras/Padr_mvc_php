@@ -1,13 +1,13 @@
 <?php
 namespace app\controllers;
 
-    class ContactController{
+    class ContactController extends Controller{
 
         public function index(){
-            var_dump('index contact');
+            $this->view('contact');
         }
-        public function store(){
-            var_dump('store contact');
+        public function store($params){
+            var_dump($params->email);
         }
         
         

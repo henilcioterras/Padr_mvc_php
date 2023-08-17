@@ -23,7 +23,7 @@
                      throw new Exception("O method {$method} não existe no controller {$controller}.");
                  }
                  //se existe chama o controller instance chamando o metodo do controller
-                 $controllerInstance->$method();
+                 $controllerInstance->$method((object)$_REQUEST);
 
             } catch (\Throwable $th) {
                 echo $th->getMessage();
@@ -36,13 +36,13 @@
                 'get' => [
                     '/' => fn()=> self::load('HomeController','index'),
                     '/contact' => fn()=> self::load('ContactController','index'),
-                    '/product' => self::load('ProductController','update'),
+                    '/product' => fn()=> self::load('ProductController','index'),
                 ],
                 'post' => [
                     '/contact' => fn()=> self::load('ContactController','store')
                 ],
                 'put' => [
-                    '/contact' => fn()=> self::load('ProductController','update')
+                    '/product' => fn()=> self::load('ProductController','update')
                 ],
                 'delete' =>[
 

@@ -1,10 +1,10 @@
 <?php
 namespace app\controllers;
 
-    class HomeController{
+    class HomeController extends Controller{
 
         public function index(){
-            var_dump('index home');
+            $this->view('home',['title'=>'Home','name'=>'Henilcio']);
         }
         
     }
